@@ -4,8 +4,8 @@ import com.github.javafaker.Faker;
 import java.util.Locale;
 
 public class TestData {
-    static Faker faker = new Faker(new Locale("de"));
-    public static String userFirstName = faker.name().firstName(),
+    Faker faker = new Faker(new Locale("de"));
+    public String userFirstName = faker.name().firstName(),
             userLastName = faker.name().lastName(),
             userEmail = faker.internet().emailAddress(),
             userGender = faker.options().option("Male", "Female", "Other"),
@@ -22,7 +22,7 @@ public class TestData {
             userCity = setCity(userState);
 
 
-    public static String setCity(String userState) {
+    public String setCity(String userState) {
         switch (userState) {
             case "NCR":
                 return faker.options().option("Delhi", "Gurgaon", "Noida");

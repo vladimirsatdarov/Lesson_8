@@ -3,35 +3,34 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-import static tests.TestData.*;
-
 public class AutomationPracticeFormWithFaker extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
+    TestData testData = new TestData();
     @Test
     void fillFormTest() {
         registrationPage.openPage()
-                .setFirstName(userFirstName)
-                .setLastName(userLastName)
-                .setEmail(userEmail)
-                .setGender(userGender)
-                .setUserNumber(userNumber)
-                .setDateOfBirth(userDayOfBirth, userMonthOfBirth, userYearOfBirth)
-                .setSubjects(userSubjects)
-                .setHobbies(userHobbies)
-                .uploadPicture(userPicture)
-                .setCurrentAddress(userCurrentAddress)
-                .setStateAndCity(userState, userCity)
+                .setFirstName(testData.userFirstName)
+                .setLastName(testData.userLastName)
+                .setEmail(testData.userEmail)
+                .setGender(testData.userGender)
+                .setUserNumber(testData.userNumber)
+                .setDateOfBirth(testData.userDayOfBirth, testData.userMonthOfBirth, testData.userYearOfBirth)
+                .setSubjects(testData.userSubjects)
+                .setHobbies(testData.userHobbies)
+                .uploadPicture(testData.userPicture)
+                .setCurrentAddress(testData.userCurrentAddress)
+                .setStateAndCity(testData.userState, testData.userCity)
                 .clickSubmit()
                 .modalDialog("Thanks for submitting the form")
-                .checkResult("Student Name", userFirstName + " " + userLastName)
-                .checkResult("Student Email", userEmail)
-                .checkResult("Gender", userGender)
-                .checkResult("Mobile", userNumber)
-                .checkResult("Date of Birth", userDayOfBirth + " " + userMonthOfBirthText + "," + userYearOfBirth)
-                .checkResult("Subjects", userSubjects)
-                .checkResult("Hobbies", userHobbies)
-                .checkResult("Address", userCurrentAddress)
-                .checkResult("State and City", userState + " " + userCity)
+                .checkResult("Student Name", testData.userFirstName + " " + testData.userLastName)
+                .checkResult("Student Email", testData.userEmail)
+                .checkResult("Gender", testData.userGender)
+                .checkResult("Mobile", testData.userNumber)
+                .checkResult("Date of Birth", testData.userDayOfBirth + " " + testData.userMonthOfBirthText + "," + testData.userYearOfBirth)
+                .checkResult("Subjects", testData.userSubjects)
+                .checkResult("Hobbies", testData.userHobbies)
+                .checkResult("Address", testData.userCurrentAddress)
+                .checkResult("State and City", testData.userState + " " + testData.userCity)
                 .closeModalPopUp();
     }
 }
